@@ -14,32 +14,23 @@ let positiveFeedback = false
 let likesCount = 0
 
 function submitFeedback(e){
-    // get user name
+    
     const userForm = userName.value 
-    // get feedback
     const commentForm = comment.value 
-    // if inputs are not empty
     if(userForm && commentForm !== ''){
-        // create new feedback
         newFeedback = {
             "id": Math.floor((Math.random() * 1000)+ 1),
             "userName": userForm,
             "userComment": commentForm,
             "typeOfFeedback": positiveFeedback
         }
-        // add new feedback to array
         feedbackArr.push(newFeedback)
-        // if liked add to count
         if(positiveFeedback === true){
             addLikes()
         }
-        // clear inputs 
         resetForm()
-        // add feedback to list
         addFeedback(newFeedback)
     }
-
-
     e.preventDefault()
 }
 
